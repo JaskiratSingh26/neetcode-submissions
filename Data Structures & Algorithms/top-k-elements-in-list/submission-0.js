@@ -6,27 +6,30 @@ class Solution {
      */
     topKFrequent(nums, k) {
 
-        let map =new Map()
-        for (let num of nums ){
-            if(map.has(num)){
-                map.set(num,map.get(num)+1)
+        let map = new Map()
+
+        for (let num of nums) {
+
+            if (map.has(num)) {
+
+                map.set(num, map.get(num) + 1)
             }
-            else{
-                map.set(num,1)
+            else {
+                map.set(num, 1)
             }
         }
 
-        // sort map
-        let sorted_map=new Map([...map].sort((a,b)=>b[1]-a[1]))
-        let ans =[]
-        for (let num of sorted_map.keys() ){
+        let sort = [...map.entries()].sort((a, b) => a[1] - b[1])
 
-            if(k==0) return ans 
+        let ans = sort.splice(-k)
+        let final = []
 
-            ans.push(num)
-            k--
+        for (let data of ans) {
+
+            final.push(data[0])
         }
 
-        return ans
+        return final
+
     }
 }

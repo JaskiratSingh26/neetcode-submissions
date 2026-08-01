@@ -4,16 +4,11 @@ class Solution {
      * @return {boolean}
      */
     hasDuplicate(nums) {
-
         let map = new Map()
 
-        for(let num of nums ){
-            if(map.has(num)){
-                return true 
-            }
-            else {
-                map.set(num,0)
-            }
+        for (let data of nums) {
+            if (map.has(data)) return true
+            map.set(data)
         }
 
         return false 

@@ -14,9 +14,9 @@ class Solution {
      * @return {number[]}
      */
     inorderTraversal(root) {
-        let ans = []
-        let stack = []
+
         let node = root
+        let stack = [], ans = []
 
         while (stack.length > 0 || node) {
             if (node) {
@@ -24,16 +24,13 @@ class Solution {
                 node = node.left
             }
             else {
+
                 node = stack.pop()
                 ans.push(node.val)
                 node = node.right
+
             }
-
-
-
         }
-
         return ans
-
     }
 }

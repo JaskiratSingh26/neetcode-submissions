@@ -5,24 +5,24 @@ class Solution {
      */
     maxArea(heights) {
 
+        let i = 0
+        let j = heights.length - 1
+        let max = 0
+        while (i < j) {
 
-        let ans=0
+          let w=j-i
+          let ht=Math.min(heights[i],heights[j])
+          let aera=w*ht
+          max=Math.max(aera,max)
 
-        let i=0
-        let j=heights.length-1
-
-        while(i<=j){
-
-            let ht=Math.min(heights[j],heights[i])
-            let w=j-i
-
-            let water=w*ht
-
-            ans=Math.max(ans,water)
-
-            if(heights[j]<heights[i]) j--
-            else i++
+          if(heights[i]<heights[j]){
+            i++
+          }
+          else{
+            j--
+          }
         }
-        return ans 
+
+        return max 
     }
 }

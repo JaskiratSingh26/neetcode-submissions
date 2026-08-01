@@ -4,14 +4,17 @@ class Solution {
      * @return {number}
      */
     maxProfit(prices) {
-        let ans = 0;
-        let lowest_val = prices[0];
 
-        for (let i = 1; i < prices.length; i++) {
+        let max = 0
 
-            ans=Math.max(ans,prices[i]-lowest_val)
-            lowest_val=Math.min(lowest_val,prices[i])
+        for (let i = 0; i < prices.length; i++) {
+
+            for (let j = i + 1; j < prices.length; j++) {
+
+                max=Math.max(max,prices[j]-prices[i])
+            }
         }
-        return ans 
+
+        return  max
     }
 }
